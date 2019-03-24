@@ -9,11 +9,11 @@ To start download a license file from the FreeSurfer webpage. Place
 the license.txt file into the build-docker directory. Create the two
 FreeSurfer docker containers in the build-docker directory with:
 
-'''
+```
 cd build-docker
 docker build -t fs60 -f Dockerfile .
 docker build -t fs60beta -f Dockerfile_beta .
-'''
+```
 
 Change the search string in the runFS.sh script to point to your
 image series and adjust the number of cores (24) based on your
