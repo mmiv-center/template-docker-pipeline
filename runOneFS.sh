@@ -18,7 +18,7 @@ od=`realpath ${od}`
 #fi
 
 # generate a name for the container so we can wait for it to finish here
-UUID=$(cat /dev/urandom | tr -dc "a-zA-Z0-9" | head -c 8)
+UUID=$(cat /dev/urandom | LC_CTYPE=C tr -dc "a-zA-Z0-9" | head -c 8)
 
 if [ ! -f "${od}/${subject}/stats/aseg.stats" ]; then
     docker run --rm --name ${UUID} -v ${fnpath}:/input -v ${od}:/output fs60 /bin/bash -c "recon-all -i /input/1.dcm -subjid ${subject} -all"
